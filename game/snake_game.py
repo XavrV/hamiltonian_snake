@@ -1,14 +1,7 @@
-# game/snake_game.py
-
 import random
 from typing import List, Tuple
 from dataclasses import dataclass
-
-
-@dataclass(frozen=True, order=True)
-class Point:
-    x: int
-    y: int
+from common.point import Point
 
 
 # Acciones: [straight, right, left] para compatibilidad con RL y lógica futura
@@ -23,7 +16,7 @@ class SnakeGame:
 
     def reset(self):
         self.direction = "RIGHT"
-        self.head = Point(self.width // 2, self.height // 2)
+        self.head = Point(0, 0)  # ← Alineado con inicio del ciclo
         self.body = [self.head]
         self.score = 0
         self._place_food()
