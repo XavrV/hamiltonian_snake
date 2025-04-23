@@ -55,7 +55,11 @@ class SnakeGame:
 
     def play_step(self, action: Action) -> Tuple[int, bool, int]:
         self.frame_iteration += 1
+
+        # Actualizar posición de la cabeza primero
         self._move(action)
+
+        # Luego insertar NUEVA cabeza al cuerpo
         self.body.insert(0, self.head)
 
         reward = 0
